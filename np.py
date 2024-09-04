@@ -6,7 +6,7 @@ import pandas as pd
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-ranking = defaultdict(int)
+
 
 def tokenization(n):
     
@@ -17,8 +17,7 @@ def tokenization(n):
         tokens = word_tokenize(text)
         token_list.extend(tokens)
         
-        assert n <= len(token_list), "O valor de n é maior que o número de tokens disponíveis."
-    
+        assert n <= len(token_list) 
         tokens_lower = [token.lower() for token in token_list]
     
     stop_words = set(stopwords.words('english') + list(punctuation))
@@ -30,10 +29,8 @@ def tokenization(n):
     word_cloud = " ".join(filtered_tokens)
     wordcloud = WordCloud(width=1000, height=500, background_color='white', min_font_size=10).generate(word_cloud)
     
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
-
+    plt.imshow(wordcloud)
+  
 
 tokenization(100)
 
